@@ -1,0 +1,43 @@
+.vector{
+	width:inherit;
+	height: inherit;
+	position:absolute;
+	z-index:1;
+	top:0;
+	left:0;
+}
+.img-poly{
+	position:relative;
+	display:inline-block;
+	height:auto;
+	width:auto;
+}
+img {
+	display:block;
+	position:relative;
+}
+
+.line{
+	display: flex;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
