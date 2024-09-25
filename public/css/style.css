@@ -37,6 +37,10 @@ img {
     z-index: 1000;
 }
 
+.darkened{
+	filter: brightness(50%);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

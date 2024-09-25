@@ -43,7 +43,8 @@ function add_images() {
         new_img.setAttribute('data-original', path)
         path_to_element[path] = img_poly_container
         new_img.src = prefix_url + path + '?csf=1&web'
-        new_img.className = 'object-fill'
+        new_img.className += ' object-fill'
+        new_img.className += ' darkened'
         // br creation
         const br = document.createElement('br')
         // svg creation
@@ -172,7 +173,7 @@ let res = Promise.all([
                 let label = categories[anno['category_id']]
                 polygon.setAttribute('points', scaledPoly)
                 polygon.setAttribute('fill', 'rgba(' + colorMap[label] + ')')
-                polygon.setAttribute('fill-opacity', '0.15')
+                polygon.setAttribute('fill-opacity', '0.3')
                 function showTooltip(event, label) {
                     tooltip.textContent = label
                     tooltip.style.display = 'block'
@@ -182,7 +183,7 @@ let res = Promise.all([
 
                 function hideTooltip() {
                     tooltip.style.display = 'none'
-                    polygon.setAttribute('fill-opacity', '0.15')
+                    polygon.setAttribute('fill-opacity', '0.3')
                 }
 
                 function moveTooltip(event) {
@@ -216,12 +217,16 @@ document.getElementById('hide-button').addEventListener('click', (e) => {
         polys.forEach((poly) => poly.setAttribute('style', 'display:none;'))
         e.target.innerHTML = 'Show Image Labels'
         states[e.target.id] = false
+
     } else {
         let polys = document.querySelectorAll('.poly')
         polys.forEach((poly) => poly.removeAttribute('style'))
         e.target.innerHTML = 'Hide Image Labels'
         states[e.target.id] = true
     }
+    // toggle darkened style from image
+    let imgs = document.querySelectorAll("img")
+    imgs.forEach((img) => img.classList.toggle("darkened"))
 })
 
 const legend = document.getElementById('legend')
