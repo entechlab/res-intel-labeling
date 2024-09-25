@@ -209,8 +209,9 @@ let res = Promise.all([
         promises.push(promise)
     })
 })
+
 console.log(res)
-document.getElementById('hide-button').addEventListener('click', (e) => {
+document.getElementById('hide-mask-toggle').addEventListener('change', (e) => {
     console.log(e.target.id)
     if (states[e.target.id]) {
         let polys = document.querySelectorAll('.poly')
@@ -221,14 +222,16 @@ document.getElementById('hide-button').addEventListener('click', (e) => {
     } else {
         let polys = document.querySelectorAll('.poly')
         polys.forEach((poly) => poly.removeAttribute('style'))
-        e.target.innerHTML = 'Hide Image Labels'
+      // e.target.innerHTML = 'Hide Image Labels'
         states[e.target.id] = true
     }
+})
+document.getElementById("darken-toggle").addEventListener('change', (e) => {
+
     // toggle darkened style from image
     let imgs = document.querySelectorAll("img")
     imgs.forEach((img) => img.classList.toggle("darkened"))
 })
-
 const legend = document.getElementById('legend')
 const toggleButton = document.getElementById('toggle-legend')
 
