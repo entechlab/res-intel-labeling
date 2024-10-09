@@ -155,8 +155,6 @@ let res = Promise.all([
             const scaleY = imgHeight / origDimensions.height
 
             let annos = imgAnnos[imgSrc]
-            if (! annos)
-              console.log(imgSrc)
             for (let anno of annos) {
                 let scaledPoints = anno['segmentation'][0].map(
                     function (item, index) {
@@ -210,7 +208,6 @@ let res = Promise.all([
     })
 })
 
-console.log(res)
 document.getElementById('hide-mask-toggle').addEventListener('change', (e) => {
     console.log(e.target.id)
     if (states[e.target.id]) {
